@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DireccionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+    Route::get('/', function () {
     return view('welcome');
 });
+
+Route::view("/ingresar-direccion","guardarDireccion");
+Route::post("/guardar-direccion",[DireccionController::class, 'guardar']);
 
 Auth::routes();
 
